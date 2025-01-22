@@ -1,5 +1,5 @@
 import React from "react";
-import { FlatList, StyleSheet ,View} from "react-native";
+import { FlatList, StyleSheet, View } from "react-native";
 import ListItem from "../components/ListItem";
 import Screen from "../components/Screen";
 import ListItemSeparator from "../components/ListItemSeparator";
@@ -31,6 +31,11 @@ function MessagesScreen(props) {
                         title={item.title}
                         subTitle={item.description}
                         image={item.image}
+                        onPress={() => console.log("message selected", item)}
+                        //renderRightActions={() => <View style={{
+                           // backgroundColor: "red",
+                          //  width: 70,
+                        //}}></View>}
                     />
                 )}
                 ItemSeparatorComponent={ListItemSeparator}
