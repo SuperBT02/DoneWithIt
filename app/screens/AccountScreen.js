@@ -2,19 +2,19 @@ import React from 'react';
 import { StyleSheet, View, FlatList } from 'react-native';
 import Screen from '../components/Screen';
 import ListItem from '../components/ListItem';
-
+import Icon from "../components/Icon";
 import colors from '../config/colors';
 
 const menuItems = [
     {
         title: "My Listings",
         icon: {
-            name: "format-bulleted",
+            name: "format-list-bulleted",
             backgroundColor: colors.primary,
         },
     },
     {
-        title: "my messages",
+        title: "my Messages",
         icon: {
             name: "email",
             backgroundColor: colors.secondary,
@@ -24,12 +24,12 @@ const menuItems = [
 
 function AccountScreen(props) {
     return (
-        <Screen>
+        <Screen style={styles.screen}>
             <View style={styles.container}>
                 <ListItem
                     title="Rayen Boubtane"
                     subTitle="rayenboubtane71@gmail.com"
-                    image={require('../assets/mosh.jpg')} />
+                    image={require("../assets/mosh.jpg")}/>
             </View>
             <View style={styles.container}>
                 <FlatList
@@ -38,8 +38,11 @@ function AccountScreen(props) {
                     renderItem={({ item }) =>
                         <ListItem
                             title={item.title}
-                            IconComponent={item.icon.name}
-                            backgroundColor={item.icon.backgroundColor} />}
+                            IconComponent={
+                                <Icon
+                                    name={item.icon.name}
+                                    backgroundColor={item.icon.backgroundColor} />
+                            } />}
                 />
             </View>
         </Screen>
@@ -47,7 +50,11 @@ function AccountScreen(props) {
 }
 const styles = StyleSheet.create({
     container: {
-        marginVertical: 20
+        marginVertical: 10,
+        flex:0.2
+    },
+    screen: {
+        backgroundColor: colors.primary,
     }
 })
 export default AccountScreen;
