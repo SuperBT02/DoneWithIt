@@ -4,6 +4,7 @@ import Screen from '../components/Screen';
 import ListItem from '../components/ListItem';
 import Icon from "../components/Icon";
 import colors from '../config/colors';
+import ListItemSeparator from '../components/ListItemSeparator';
 
 const menuItems = [
     {
@@ -25,7 +26,7 @@ const menuItems = [
 function AccountScreen(props) {
     return (
         <Screen style={styles.screen}>
-            <View style={styles.container}>
+            <View style={[styles.container,{minHeight:70}]}>
                 <ListItem
                     title="Rayen Boubtane"
                     subTitle="rayenboubtane71@gmail.com"
@@ -35,6 +36,7 @@ function AccountScreen(props) {
                 <FlatList
                     data={menuItems}
                     keyExtractor={menuItem => menuItem.title}
+                    ItemSeparatorComponent={ListItemSeparator}
                     renderItem={({ item }) =>
                         <ListItem
                             title={item.title}
@@ -45,16 +47,21 @@ function AccountScreen(props) {
                             } />}
                 />
             </View>
+            <ListItem
+                title="Log Out"
+                IconCompnent={
+                    <Icon name="logout" backgroundColor="black" size={50} iconColor="white"/>
+                }
+            />
         </Screen>
     );
 }
 const styles = StyleSheet.create({
     container: {
-        marginVertical: 10,
-        flex:0.2
+        marginVertical: 20,
     },
     screen: {
-        backgroundColor: colors.primary,
+        backgroundColor: colors.lightGray,
     }
 })
 export default AccountScreen;

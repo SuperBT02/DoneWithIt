@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, Image, TouchableOpacity, TouchableHighlight } from "react-native";
+import { View, StyleSheet, Image, TouchableOpacity, TouchableHighlight, } from "react-native";
 import ReanimatedSwipeable from 'react-native-gesture-handler/ReanimatedSwipeable';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
@@ -34,6 +34,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     padding: 15,
     backgroundColor: colors.white,
+    minHeight:70
   },
   detailsContainer: {
     marginLeft: 10,
